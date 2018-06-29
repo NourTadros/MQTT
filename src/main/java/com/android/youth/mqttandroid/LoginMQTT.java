@@ -9,18 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginMQTT extends AppCompatActivity {
-EditText hostport;
-EditText username;
-Button Next;
-Intent intent;
-EditText password;
+
+    EditText hostport;
+    EditText username;
+    Button Next;
+    Intent intent;
+    EditText password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_mqtt);
 
         password=(EditText) findViewById((R.id.passtext));
-       String pw=password.getText().toString();
+        String pw=password.getText().toString();
 
         username=(EditText) findViewById(R.id.username);
         String user=username.getText().toString();
@@ -31,7 +33,6 @@ EditText password;
         Next=(Button) findViewById(R.id.Next);
         Next.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(),MainActivity.class);
@@ -40,16 +41,14 @@ EditText password;
                 intent.putExtra("password",password.getText().toString());
                 startActivity(intent);
             }
-        });}
-
-        public void onButtonClick(View v){
-            nextpage(v);
-
-        }
-
-    public void nextpage(View v){
-
-        startActivity(new Intent(this, MainActivity.class));
+        });
     }
 
+    public void onButtonClick(View v){
+        nextpage(v);
+    }
+
+    public void nextpage(View v){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }

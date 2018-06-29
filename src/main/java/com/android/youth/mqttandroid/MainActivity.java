@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         } catch (MqttException e) {
             e.printStackTrace();
         }
+
         client.setCallback(new MqttCallback() {
             @Override
             public void connectionLost(Throwable cause) {
@@ -112,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             }
         });
 
-
         subscribe = (Button) findViewById(R.id.subs);
 
         subscribe.setOnClickListener(new View.OnClickListener() {
@@ -125,15 +125,13 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public void pub(View v){
 
         String topic = topicview.getText().toString();
-        Log.i("topicview", "topicview :" +topic);
         String conv=mymsg.getText().toString();
-       String message = conv;
+        String message = conv;
             try {
                 client.publish(topic, message.getBytes(), 0, false);
             } catch (MqttException e) {
                 e.printStackTrace();
             }
-
     }
     public void setSubscription(){
         try{
@@ -144,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             e.printStackTrace();
         }
     }
+
     public void conn(View v){
         try {
             IMqttToken token = client.connect(options);
@@ -203,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             mymsg.setText("Off");
         }
     }
-    }
+}
 
 
 
