@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     TextView host;
     TextView User;
     TextView Pass;
-    EditText topic;
-     //String STRtopic;
+    EditText topicview;
+    Button subscribe;
 
 
     //static String MqttHost=	"tcp://m12.cloudmqtt.com:14886";
     //static String username="rnghsoam";
     //static String password="TbwH-S_X4FLy";
-    String STRtopic="MQTT Test1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         Pass.setText(getIntent().getStringExtra("password"));
         String password=Pass.getText().toString();
 
-//        topic=(EditText) findViewById((R.id.topic));
-//        STRtopic=topic.getText().toString();
+        topicview =(EditText) findViewById((R.id.topic));
+
 
         mymsg=(TextView) findViewById(R.id.mymsg) ;
         subText= (TextView)findViewById(R.id.subText);
@@ -112,10 +112,21 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
             }
         });
+
+
+        subscribe = (Button) findViewById(R.id.subs);
+
+        subscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSubscription();
+            }
+        });
     }
     public void pub(View v){
 
-        String topic = STRtopic;
+        String topic = topicview.getText().toString();
+        Log.i("topicview", "topicview :" +topic);
         String conv=mymsg.getText().toString();
        String message = conv;
             try {
@@ -125,9 +136,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             }
 
     }
-    private void setSubscription(){
+    public void setSubscription(){
         try{
-            client.subscribe(STRtopic,0);
+            Log.i("sub", topicview.getText().toString());
+            client.subscribe(topicview.getText().toString(),0);
         }
         catch(MqttException e){
             e.printStackTrace();
@@ -230,10 +242,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 //        Sub.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                String topic = "foo/bar";
+//                String topicview = "foo/bar";
 //                int qos = 1;
 //                try {
-//                    IMqttToken subToken = client.subscribe(topic, qos);
+//                    IMqttToken subToken = client.subscribe(topicview, qos);
 //                    subToken.setActionCallback(new IMqttActionListener() {
 //                        @Override
 //                        public void onSuccess(IMqttToken asyncActionToken) {
@@ -244,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 //                        public void onFailure(IMqttToken asyncActionToken,
 //                                              Throwable exception) {
 //                            // The subscription could not be performed, maybe the user was not
-//                            // authorized to subscribe on the specified topic e.g. using wildcards
+//                            // authorized to subscribe on the specified topicview e.g. using wildcards
 //
 //                        }
 //                    });
@@ -291,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 //            }
 //
 //            @Override
-//            public void messageArrived(String topic, MqttMessage message) throws Exception {
+//            public void messageArrived(String topicview, MqttMessage message) throws Exception {
 //                Toast.makeText(MainActivity.this, new String (message.getPayload()), Toast.LENGTH_SHORT).show();
 //            }
 //
