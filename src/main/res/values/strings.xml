@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MQTTAndroid</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="example_tcp_m12_cloudmqtt_com_11111">example: tcp://m12.cloudmqtt.com:11111</string>
+    <string name="topic">Topic</string>
+    <string name="example_mqtt_test1">Example: MQTT Test1</string>
+    <string name="mqtt_host_port_number">MQTT host + Port Number</string>
+    <string name="example_rnghsoam">Example: rnghsoam</string>
+    <string name="next">Next</string>
+</resources>
