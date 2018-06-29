@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     TextView Pass;
     EditText topic;
      //String STRtopic;
-hjk
+
 
     //static String MqttHost=	"tcp://m12.cloudmqtt.com:14886";
     //static String username="rnghsoam";
