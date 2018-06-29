@@ -39,15 +39,6 @@
         android:text="Publish" />
 
     <Button
-        android:id="@+id/unsubs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="139dp"
-        android:text="Unsubscribe" />
-
-    <Button
         android:id="@+id/disconnBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,9 +63,10 @@
         android:id="@+id/subText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/mymsg"
-        android:layout_marginTop="231dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="228dp"
         android:text="Subscriber Message" />
 
     <TextView
@@ -110,9 +102,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/subText"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/subText"
         android:fontFamily="monospace"
         android:text="Subscriber:"
         android:textSize="14sp" />
@@ -121,8 +112,9 @@
         android:id="@+id/textView4"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView3"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/mymsg"
+        android:layout_marginEnd="15dp"
         android:fontFamily="monospace"
         android:text="Published Message:" />
 
@@ -130,8 +122,10 @@
         android:id="@+id/host"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/unsubs"
-        android:layout_alignStart="@+id/textView3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="138dp"
+        android:layout_marginStart="12dp"
         android:text="viewhost" />
 
     <TextView
@@ -139,8 +133,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginBottom="154dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="174dp"
         android:text="viewusername" />
 
     <TextView
